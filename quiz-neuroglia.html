@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz sobre Neuroglia</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; max-width: 800px; margin: auto; }
+        h1 { text-align: center; color: #000080; }
+        .question { margin: 20px 0; }
+        .question p { font-weight: bold; }
+        .options { margin-left: 20px; }
+        .answer { display: none; color: green; font-style: italic; }
+        button { background-color: #87CEEB; border: none; padding: 10px; cursor: pointer; }
+        button:hover { background-color: #5DADE2; }
+    </style>
+</head>
+<body>
+    <h1>Quiz sobre Neuroglia</h1>
+    
+    <div class="question">
+        <p>1. Qual é a principal função dos astrócitos no sistema nervoso central?</p>
+        <div class="options">
+            <input type="radio" name="q1" value="a"> a) Produzir mielina<br>
+            <input type="radio" name="q1" value="b"> b) Fagocitar patógenos<br>
+            <input type="radio" name="q1" value="c"> c) Suporte estrutural e regulação do ambiente químico<br>
+            <input type="radio" name="q1" value="d"> d) Produzir líquido cefalorraquidiano<br>
+        </div>
+        <button onclick="showAnswer(1, 'c', 'Correto! Os astrócitos fornecem suporte estrutural e regulam o ambiente químico no SNC.')">Verificar</button>
+        <p class="answer" id="answer1"></p>
+    </div>
+
+    <div class="question">
+        <p>2. Qual célula glial é responsável por produzir mielina no sistema nervoso periférico (SNP)?</p>
+        <div class="options">
+            <input type="radio" name="q2" value="a"> a) Oligodendrócitos<br>
+            <input type="radio" name="q2" value="b"> b) Células de Schwann<br>
+            <input type="radio" name="q2" value="c"> c) Astrócitos<br>
+            <input type="radio" name="q2" value="d"> d) Micróglia<br>
+        </div>
+        <button onclick="showAnswer(2, 'b', 'Correto! As células de Schwann produzem mielina no SNP.')">Verificar</button>
+        <p class="answer" id="answer2"></p>
+    </div>
+
+    <div class="question">
+        <p>3. O que acontece na esclerose múltipla, em relação às células gliais?</p>
+        <div class="options">
+            <input type="radio" name="q3" value="a"> a) A micróglia torna-se inativa<br>
+            <input type="radio" name="q3" value="b"> b) Os oligodendrócitos são atacados, afetando a mielina<br>
+            <input type="radio" name="q3" value="c"> c) As células de Schwann deixam de funcionar no SNC<br>
+            <input type="radio" name="q3" value="d"> d) Os astrócitos produzem tumores<br>
+        </div>
+        <button onclick="showAnswer(3, 'b', 'Correto! Na esclerose múltipla, o sistema imune ataca a mielina produzida pelos oligodendrócitos.')">Verificar</button>
+        <p class="answer" id="answer3"></p>
+    </div>
+
+    <div class="question">
+        <p>4. Qual célula glial atua como a principal defesa imune no SNC?</p>
+        <div class="options">
+            <input type="radio" name="q4" value="a"> a) Células ependimárias<br>
+            <input type="radio" name="q4" value="b"> b) Células satélites<br>
+            <input type="radio" name="q4" value="c"> c) Micróglia<br>
+            <input type="radio" name="q4" value="d"> d) Astrócitos<br>
+        </div>
+        <button onclick="showAnswer(4, 'c', 'Correto! A micróglia age como a principal célula de defesa no SNC.')">Verificar</button>
+        <p class="answer" id="answer4"></p>
+    </div>
+
+    <div class="question">
+        <p>5. Qual é a proporção estimada de células gliais em relação aos neurônios em algumas regiões do cérebro?</p>
+        <div class="options">
+            <input type="radio" name="q5" value="a"> a) 1:1<br>
+            <input type="radio" name="q5" value="b"> b) 5:1<br>
+            <input type="radio" name="q5" value="c"> c) 10:1<br>
+            <input type="radio" name="q5" value="d"> d) 20:1<br>
+        </div>
+        <button onclick="showAnswer(5, 'c', 'Correto! A proporção estimada é de 10:1 em algumas regiões cerebrais.')">Verificar</button>
+        <p class="answer" id="answer5"></p>
+    </div>
+
+    <script>
+        function showAnswer(questionNum, correctAnswer, message) {
+            const selectedOption = document.querySelector(`input[name="q${questionNum}"]:checked`);
+            const answerDiv = document.getElementById(`answer${questionNum}`);
+            if (selectedOption) {
+                if (selectedOption.value === correctAnswer) {
+                    answerDiv.textContent = message;
+                } else {
+                    answerDiv.textContent = "Incorreto! Tente novamente.";
+                }
+                answerDiv.style.display = "block";
+            } else {
+                alert("Por favor, selecione uma opção!");
+            }
+        }
+    </script>
+</body>
+</html>
